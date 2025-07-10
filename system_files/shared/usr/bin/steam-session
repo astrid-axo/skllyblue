@@ -1,2 +1,2 @@
 #!/bin/bash
-gamescope --mangoapp -e -- steam -steamdeck -steamos3
+gamescope -e -- steam -tenfoot
