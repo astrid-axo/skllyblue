@@ -2,6 +2,9 @@
 
 set -ouex pipefail
 
+# i don't think i can remove gnome shell apps, but i'll hide their desktop files anyway
+uneeded_apps=("org.gnome.Shell.Extensions org.gnome.Tour")
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -16,9 +19,13 @@ ln -s /run /var/run
 dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
-#for f in "skllyjust"; do
-#    chmod +x /usr/bin/$f
-#done
+for f in "skllyjust"; do
+    chmod +x /usr/bin/$f
+done
+
+for f in $uneeded_apps; do
+    rm -f /usr/share/applications/$f.desktop
+done
 
 cd /tmp
 git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
@@ -29,8 +36,8 @@ for f in $(ls ./bin); do
 done
 
 cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desktop
-cd /
-rm -rf /tmp/steam-using-gamescope-guide
+cd /tmp
+rm -rf ./steam-using-gamescope-guide
 
 dnf5 install -y @development-tools \
     gtk-murrine-engine \
@@ -45,9 +52,8 @@ dnf5 install -y @development-tools \
     gnome-shell-extension-just-perfection \
     gnome-shell-extension-caffeine 
 
-dnf5 remove -y gnome-extensions \
+dnf5 remove -y thunderbird \
     firefox
-
 
 # Use a COPR Example:
 #
