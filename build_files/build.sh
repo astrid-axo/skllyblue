@@ -29,6 +29,8 @@ for f in $(ls ./bin); do
 done
 
 cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desktop
+cd /
+rm -rf /tmp/steam-using-gamescope-guide
 
 dnf5 install -y @development-tools \
     gtk-murrine-engine \
@@ -47,7 +49,6 @@ dnf5 remove -y gnome-extensions \
     firefox
 
 
-
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
@@ -60,5 +61,3 @@ dnf5 remove -y gnome-extensions \
 systemctl enable podman.socket
 systemctl enable tailscaled
 systemctl enable sshd
-
-rm -rf /tmp
