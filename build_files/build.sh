@@ -16,9 +16,9 @@ ln -s /run /var/run
 dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
-for f in "skllyjust"; do
-    chmod +x /usr/bin/$f
-done
+#for f in "skllyjust"; do
+#    chmod +x /usr/bin/$f
+#done
 
 cd /tmp
 git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
