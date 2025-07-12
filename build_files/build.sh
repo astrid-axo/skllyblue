@@ -49,6 +49,7 @@ dnf5 install -y @development-tools \
     distrobox \
     syncthing \
     just \
+    fastfetch \
     gnome-shell-extension-just-perfection \
     gnome-shell-extension-caffeine 
 
