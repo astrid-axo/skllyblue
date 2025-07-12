@@ -9,18 +9,26 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-custom_binaries=("steam-session")
-
+rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
 
 # this installs a package from fedora 
 dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
-rsync -rvK /ctx/system_files/shared/ /
 
-for f in $custom_binaries; do
+for f in "skllyjust"; do
     chmod +x /usr/bin/$f
 done
+
+cd /tmp
+git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
+cd steam-using-gamescope-guide/usr
+
+for f in $(ls ./bin); do
+    cp -r ./bin/$f /usr/bin/$f
+done
+
+cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desktop
 
 dnf5 install -y @development-tools \
     gtk-murrine-engine \
@@ -33,7 +41,12 @@ dnf5 install -y @development-tools \
     syncthing \
     just \
     gnome-shell-extension-just-perfection \
-    gnome-shell-extension-caffeine
+    gnome-shell-extension-caffeine 
+
+dnf5 remove -y gnome-extensions \
+    firefox
+
+
 
 # Use a COPR Example:
 #
@@ -47,3 +60,5 @@ dnf5 install -y @development-tools \
 systemctl enable podman.socket
 systemctl enable tailscaled
 systemctl enable sshd
+
+rm -rf /tmp
