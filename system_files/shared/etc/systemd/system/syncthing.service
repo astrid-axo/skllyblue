@@ -1,0 +1,9 @@
+[Unit]
+Description=Syncthing Runner
+
+[Service]
+ExecStart=/usr/bin/syncthing serve --no-browser --logfile=default
+
+[Install]
+WantedBy=multi-user.target
+
