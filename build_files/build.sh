@@ -15,6 +15,9 @@ uneeded_apps=("org.gnome.Shell.Extensions org.gnome.Tour syncthing-start")
 rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
 
+rm /usr/share/pixmaps/fedora-gdm-logo.png
+ln -s /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gdm-logo.png
+
 dconf update
 python3 /ctx/update_os_release.py
 
