@@ -15,6 +15,7 @@ uneeded_apps=("org.gnome.Shell.Extensions org.gnome.Tour syncthing-start")
 rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
 
+dconf update
 python3 /ctx/update_os_release.py
 
 # this installs a package from fedora 
