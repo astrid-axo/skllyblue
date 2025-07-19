@@ -70,4 +70,3 @@ dnf5 remove -y firefox
 systemctl enable podman.socket
 systemctl enable tailscaled
 systemctl enable sshd
-systemctl enable syncthing
