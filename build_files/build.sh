@@ -70,7 +70,11 @@ dnf5 remove -y firefox
 
 dnf5 -y copr enable lilay/topgrade
 dnf5 -y install topgrade
-dnf5 -y copr disable lilay/topgrade 
+dnf5 -y copr disable lilay/topgrade
+
+dnf5 -y copr enable vdanielmo/git-credential-manager 
+dnf5 -y install git-credential-manager
+dnf5 -y copr disable vdanielmo/git-credential-manager
 
 #### Example for enabling a System Unit File
 
