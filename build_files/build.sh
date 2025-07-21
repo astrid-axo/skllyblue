@@ -16,7 +16,7 @@ rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
 
 rm /usr/share/pixmaps/fedora-gdm-logo.png
-ln -s /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gdm-logo.png
+cp /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gdm-logo.png
 
 dconf update
 python3 /ctx/update_os_release.py
@@ -67,6 +67,10 @@ dnf5 remove -y firefox
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+
+dnf5 -y copr enable lilay/topgrade
+dnf5 -y install topgrade
+dnf5 -y copr disable lilay/topgrade 
 
 #### Example for enabling a System Unit File
 
