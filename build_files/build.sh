@@ -42,6 +42,7 @@ cd /tmp
 rm -rf ./steam-using-gamescope-guide
 
 dnf5 install -y @development-tools \
+    qemu \
     gtk-murrine-engine \
     codium \
     steam \
@@ -59,7 +60,7 @@ for f in $uneeded_apps; do
     rm -f /usr/share/applications/$f.desktop
 done
 
-dnf5 remove -y firefox
+dnf5 remove -y firefox toolbox
 
 # Use a COPR Example:
 #
