@@ -6,3 +6,8 @@ add-syncthing-folder name id path:
         --label {{ name }} \
         --id {{ id }} \
         --path {{ path }}
+
+export-box-app box app:
+    distrobox enter {{ box }} -- \
+        distrobox-export --app {{ app }} -el "none"
+        
