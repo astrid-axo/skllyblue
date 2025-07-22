@@ -24,7 +24,10 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-PS1="\[\e[0;32m\][ \[\e[0;32m\]\w \[\e[0;32m\]]\[\e[0;37m\]$ \[\e[0m\]"
+PS1="\[\e[0;36m\][ \[\e[0;36m\]\w \[\e[0;36m\]]\[\e[0;37m\]$ \[\e[0m\]"
+if [ ! -z "${CONTAINER_ID}" ]; then
+    PS1="\[\e[0;36m\][ 📦 ] - \[\e[0m\]${PS1}"
+fi
 
 fastfetch --logo fedora_silverblue --logo-padding-top 6 --logo-padding-left 2
 
