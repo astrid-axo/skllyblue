@@ -18,7 +18,6 @@ ln -s /run /var/run
 rm /usr/share/pixmaps/fedora-gdm-logo.png
 cp /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gdm-logo.png
 
-dconf update
 python3 /ctx/update_os_release.py
 
 # this installs a package from fedora 
@@ -41,8 +40,11 @@ cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desk
 cd /tmp
 rm -rf ./steam-using-gamescope-guide
 
+dnf5 install -y gnome-shell-extension-just-perfection 
+
 dnf5 install -y @development-tools \
     qemu \
+    libvirt \
     gtk-murrine-engine \
     codium \
     steam \
@@ -53,6 +55,7 @@ dnf5 install -y @development-tools \
     syncthing \
     just \
     fastfetch \
+    gnome-shell-extension-blur-my-shell \
     gnome-shell-extension-just-perfection \
     gnome-shell-extension-caffeine 
 
@@ -60,7 +63,22 @@ for f in $uneeded_apps; do
     rm -f /usr/share/applications/$f.desktop
 done
 
-dnf5 remove -y firefox toolbox
+dnf5 remove -y firefox \
+    toolbox \
+    gnome-shell-extension-background-logo \
+    gnome-shell-extension-window-list \
+    gnome-shell-extension-apps-menu \
+    gnome-shell-extension-launch-new-instance 
+
+
+# TODO: figure out less static way to get extension links...
+curl -o /tmp/arcmenu.zip https://extensions.gnome.org/extension-data/arcmenuarcmenu.com.v64.shell-extension.zip
+unzip /tmp/arcmenu.zip -d /usr/share/gnome-shell/extensions/arcmenu@arcmenu.com
+
+dconf update
+
+gsettings set org.gnome.shell.extensions.just-perfection top-panel-position 1
+ls /usr/share/gnome-shell/extensions
 
 # Use a COPR Example:
 #

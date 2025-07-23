@@ -1,6 +1,7 @@
 [misc]
 disable = ["bun", "bun_packages", "pip3"]
 display_time = false
+assume_yes = true
 
 [linux]
 rpm_ostree = true

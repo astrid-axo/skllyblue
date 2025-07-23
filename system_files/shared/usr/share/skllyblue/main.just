@@ -10,4 +10,11 @@ add-syncthing-folder name id path:
 export-box-app box app:
     distrobox enter {{ box }} -- \
         distrobox-export --app {{ app }} -el "none"
-        
+
+_first-boot:
+    #!/bin/bash
+    if [ ! -f /etc/skllyblue-initialized ]; then
+        echo "TODO"
+        touch /etc/skllyblue-initialized
+    done
+    

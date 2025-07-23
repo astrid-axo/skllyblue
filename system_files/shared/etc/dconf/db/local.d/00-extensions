@@ -1,0 +1,2 @@
+[org/gnome/shell]
+enabled-extensions=['caffeine@patapon.info', 'just-perfection-desktop@just-perfection', 'arcmenu@arcmenu.com', 'blur-my-shell@aunetx']

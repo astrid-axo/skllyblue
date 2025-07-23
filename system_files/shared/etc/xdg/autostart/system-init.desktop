@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=First Boot
+Comment=System initialization after user first boots
+Exec=/usr/bin/skllyjust _first-boot
+Icon=org.gnome.Terminal
+Type=Application
+Categories=Utility;System;
