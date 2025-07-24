@@ -14,7 +14,22 @@ export-box-app box app:
 _first-boot:
     #!/bin/bash
     if [ ! -f /etc/skllyblue-initialized ]; then
-        echo "TODO"
+        gsettings set org.gnome.shell.extensions.just-perfection startup-status 1
+        gsettings set org.gnome.shell.extensions.just-perfection top-panel-position 1
+        gsettings set org.gnome.shell.extensions.just-perfection notification-banner-position 5
+
+        for i in "$(skllyjust _package-list-to-string /usr/share/skllyblue/sys-flatpaks)"; do
+            flatpak install flathub $i
+        done
+
         touch /etc/skllyblue-initialized
     fi
+    
+_package-list-to-string +path:
+    #!/usr/bin/env python3
+    lines = []
+    with open("{{ path }}", "r") as f:
+        lines = [i.replace("\n", "") for i in f.readlines()]
+        
+    print(" ".join(lines))
     

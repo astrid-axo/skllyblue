@@ -68,7 +68,8 @@ dnf5 remove -y firefox \
     gnome-shell-extension-background-logo \
     gnome-shell-extension-window-list \
     gnome-shell-extension-apps-menu \
-    gnome-shell-extension-launch-new-instance 
+    gnome-shell-extension-launch-new-instance \
+    gnome-extensions-app 
 
 
 # TODO: figure out less static way to get extension links...
