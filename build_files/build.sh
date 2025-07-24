@@ -78,7 +78,6 @@ unzip /tmp/arcmenu.zip -d /usr/share/gnome-shell/extensions/arcmenu@arcmenu.com
 dconf update
 
 gsettings set org.gnome.shell.extensions.just-perfection top-panel-position 1
-ls /usr/share/gnome-shell/extensions
 
 # Use a COPR Example:
 #

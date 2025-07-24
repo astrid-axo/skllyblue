@@ -15,6 +15,6 @@ _first-boot:
     #!/bin/bash
     if [ ! -f /etc/skllyblue-initialized ]; then
         echo "TODO"
-        touch /etc/skllyblue-initialized
-    done
+        sudo touch /etc/skllyblue-initialized
+    fi
     
