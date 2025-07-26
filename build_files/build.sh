@@ -40,8 +40,6 @@ cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desk
 cd /tmp
 rm -rf ./steam-using-gamescope-guide
 
-dnf5 install -y gnome-shell-extension-just-perfection 
-
 dnf5 install -y @development-tools \
     qemu \
     libvirt \
@@ -65,20 +63,14 @@ done
 
 dnf5 remove -y firefox \
     toolbox \
+    blender \
     gnome-shell-extension-background-logo \
     gnome-shell-extension-window-list \
     gnome-shell-extension-apps-menu \
     gnome-shell-extension-launch-new-instance \
-    gnome-extensions-app 
-
-
-# TODO: figure out less static way to get extension links...
-curl -o /tmp/arcmenu.zip https://extensions.gnome.org/extension-data/arcmenuarcmenu.com.v64.shell-extension.zip
-unzip /tmp/arcmenu.zip -d /usr/share/gnome-shell/extensions/arcmenu@arcmenu.com
+    gnome-extensions-app
 
 dconf update
-
-gsettings set org.gnome.shell.extensions.just-perfection top-panel-position 1
 
 # Use a COPR Example:
 #
