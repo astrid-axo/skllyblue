@@ -53,6 +53,7 @@ dnf5 install -y @development-tools \
     syncthing \
     just \
     fastfetch \
+    nautilus-python \
     gnome-shell-extension-blur-my-shell \
     gnome-shell-extension-just-perfection \
     gnome-shell-extension-caffeine 
@@ -86,6 +87,10 @@ dnf5 -y copr disable lilay/topgrade
 dnf5 -y copr enable vdanielmo/git-credential-manager 
 dnf5 -y install git-credential-manager
 dnf5 -y copr disable vdanielmo/git-credential-manager
+
+dnf5 -y copr enable umutd3401/extension-manager
+dnf5 -y install extension-manager
+dnf5 -y copr disable umutd3401/extension-manager 
 
 #### Example for enabling a System Unit File
 

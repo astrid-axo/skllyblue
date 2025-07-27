@@ -29,5 +29,5 @@ if [ ! -z "${CONTAINER_ID}" ]; then
     PS1="\[\e[0;36m\][ 📦 ] - \[\e[0m\]${PS1}"
 fi
 
-fastfetch --logo fedora_silverblue --logo-padding-top 6 --logo-padding-left 2
+fastfetch --config /usr/share/skllyblue/fastfetch.json
 

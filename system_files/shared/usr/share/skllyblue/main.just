@@ -6,28 +6,29 @@ add-syncthing-folder name id path:
         --label {{ name }} \
         --id {{ id }} \
         --path {{ path }}
-
-export-box-app box app:
-    distrobox enter {{ box }} -- \
-        distrobox-export --app {{ app }} -el "none"
-
+    
 _first-boot:
     #!/bin/bash
-    if [ ! -f /etc/skllyblue-initialized ]; then
-        curl -o /tmp/arcmenu.zip https://extensions.gnome.org/extension-data/arcmenuarcmenu.com.v64.shell-extension.zip
-        gnome-extensions install /tmp/arcmenu.zip
-
+    if [ ! -f ~/.skllyblue-initialized ]; then
         gsettings set org.gnome.shell.extensions.just-perfection startup-status 1
         gsettings set org.gnome.shell.extensions.just-perfection top-panel-position 1
         gsettings set org.gnome.shell.extensions.just-perfection notification-banner-position 5
-        
-        flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+        gsettings set org.gnome.shell.extensions.just-perfection support-notifier-type 0
+        gsettings set org.gnome.shell.extensions.just-perfection search false
+    
+        python3 -m ensurepip --upgrade
+        pip3 install --upgrade git+https://github.com/essembeh/gnome-extensions-cli
+
+        # post install extensions that are not availible as fedora packgaes
+        for i in "$(skllyjust _package-list-to-string /usr/share/skllyblue/extension-list)"; do
+            gext i $i
+        done
 
         for i in "$(skllyjust _package-list-to-string /usr/share/skllyblue/sys-flatpaks)"; do
             flatpak install -y flathub $i
         done
 
-        touch /etc/skllyblue-initialized
+        touch ~/.skllyblue-initialized
     fi
     
 _package-list-to-string +path:
