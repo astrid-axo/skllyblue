@@ -28,6 +28,8 @@ for f in "skllyjust"; do
     chmod +x /usr/bin/$f
 done
 
+xdg-icon-resource install --size 256 /usr/share/icons/update.png skllyblue-update
+
 cd /tmp
 git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
 cd steam-using-gamescope-guide/usr

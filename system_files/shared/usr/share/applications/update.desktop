@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=System Update
-Comment=Run topgrade on system
-Exec=topgrade
-Icon=update
+Comment=Do a silly tograde
+Exec=skllyjust update
+Icon=skllyblue-update
 Terminal=true
 Type=Application
 Categories=System;
