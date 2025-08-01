@@ -1,2 +1,2 @@
 [org/gnome/login-screen]
-  logo='/usr/share/plymouth/themes/spinner/watermark.png'
+  logo='file:///usr/share/plymouth/themes/spinner/watermark.png'

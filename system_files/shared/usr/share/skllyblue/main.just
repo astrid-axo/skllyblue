@@ -20,20 +20,6 @@ update:
 _first-boot:
     #!/bin/bash
     if [ ! -f ~/.skllyblue-initialized ]; then
-        gsettings set org.gnome.shell.extensions.just-perfection startup-status 1
-        gsettings set org.gnome.shell.extensions.just-perfection top-panel-position 1
-        gsettings set org.gnome.shell.extensions.just-perfection notification-banner-position 5
-        gsettings set org.gnome.shell.extensions.just-perfection support-notifier-type 0
-        gsettings set org.gnome.shell.extensions.just-perfection search false
-    
-        python3 -m ensurepip --upgrade
-        pip3 install --upgrade git+https://github.com/essembeh/gnome-extensions-cli
-
-        # post install extensions that are not availible as fedora packgaes
-        for i in "$(skllyjust _package-list-to-string /usr/share/skllyblue/extension-list)"; do
-            gext i $i
-        done
-
         for i in "$(skllyjust _package-list-to-string /usr/share/skllyblue/sys-flatpaks)"; do
             flatpak install -y flathub $i
         done

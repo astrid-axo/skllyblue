@@ -1,0 +1,2 @@
+[org.gnome.shell.extensions.date-menu-formatter]
+pattern='hh:mm a | MM/dd/yyyy'

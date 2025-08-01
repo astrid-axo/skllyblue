@@ -2,17 +2,10 @@
 
 set -ouex pipefail
 
-# i don't think i can remove gnome shell apps, but i'll hide their desktop files anyway
-uneeded_apps=("org.gnome.Shell.Extensions org.gnome.Tour syncthing-start")
-
-### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
+uneeded_apps=("syncthing-start")
 
 rsync -rvK /ctx/system_files/shared/ /
+glib-compile-schemas /usr/share/glib-2.0/schemas
 ln -s /run /var/run
 
 rm /usr/share/pixmaps/fedora-gdm-logo.png
@@ -20,15 +13,39 @@ cp /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gd
 
 python3 /ctx/update_os_release.py
 
-# this installs a package from fedora 
-dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
-
 for f in "skllyjust"; do
     chmod +x /usr/bin/$f
 done
 
-xdg-icon-resource install --size 256 /usr/share/icons/update.png skllyblue-update
+xdg-icon-resource install --size 256 /usr/share/icons/skllyblue/update.png skllyblue-update
+
+# shell_ver=$(gnome-shell --version)
+# shell_ver=($shell_ver)
+# shell_ver=${shell_ver[2]}
+# 
+# for f in $gnome_extensions; do
+#     data=$(curl "https://extensions.gnome.org/extension-info/?uuid=$f&shell_version=$shell_ver")
+#     download_url=$(echo $data | jq -r '.download_url')
+#     ext_dir="/usr/share/gnome-shell/extensions/$f"
+# 
+#     curl -o /tmp/$f.zip -L "https://extensions.gnome.org$download_url"
+#     unzip -d $ext_dir /tmp/$f.zip
+#     rm /tmp/$f.zip
+# 
+#     if [ -d $ext_dir/locale ]; then
+#         rsync -rvK $ext_dir/locale /usr/share/locale
+#     fi
+# 
+#     if [ -d $ext_dir/schemas ]; then
+#         for f in $(ls $ext_dir/schemas); do
+#             if [[ $f == *.xml ]]; then
+#                 cp $ext_dir/schemas/$f /usr/share/glib-2.0/schemas
+#             fi
+#         done
+#     fi
+# done
+
+dconf update
 
 cd /tmp
 git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
@@ -41,6 +58,10 @@ done
 cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desktop
 cd /tmp
 rm -rf ./steam-using-gamescope-guide
+
+flatpak remote-add flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 dnf5 install -y @development-tools \
     qemu \
@@ -55,10 +76,7 @@ dnf5 install -y @development-tools \
     syncthing \
     just \
     fastfetch \
-    nautilus-python \
-    gnome-shell-extension-blur-my-shell \
-    gnome-shell-extension-just-perfection \
-    gnome-shell-extension-caffeine 
+    nautilus-python
 
 for f in $uneeded_apps; do
     rm -f /usr/share/applications/$f.desktop
@@ -71,16 +89,16 @@ dnf5 remove -y firefox \
     gnome-shell-extension-window-list \
     gnome-shell-extension-apps-menu \
     gnome-shell-extension-launch-new-instance \
-    gnome-extensions-app
+    gnome-shell-extension-places-menu \
+    gnome-extensions-app \
+    gnome-help-app \
+    gnome-tours-app \
 
-dconf update
+gnome_extensions=$(ls /usr/share/gnome-shell/extensions)
+# python script packed into a line because uhh
+echo -e "[org/gnome/shell]\nenabled-extensions=$(echo "_=\"\"\"$gnome_extensions\"\"\";print('['+', '.join([f\"\"\"'{i}'\"\"\" for i in _.split('\n')])+']')" | python3)" \
+    >> /etc/dconf/db/local.d/00-extensions
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
 
 dnf5 -y copr enable lilay/topgrade
 dnf5 -y install topgrade
