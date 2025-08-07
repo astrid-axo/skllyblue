@@ -1,5 +1,0 @@
-[gnome.shell.extensions.just-perfection]
-startup-status='1'
-top-panel-position='1'
-support-notifier-type='0'
-search='false'

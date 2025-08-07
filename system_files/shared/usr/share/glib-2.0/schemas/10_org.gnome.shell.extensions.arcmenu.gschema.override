@@ -1,5 +1,0 @@
-[org.gnome.shell.extensions.arcmenu]
-menu-layout='Windows'
-insider-layout-extra-shortcuts=[{'id': 'org.gnome.Nautilus.desktop'}, {'id': 'org.gnome.Terminal.desktop'}, {'id': 'org.gnome.Settings.desktop'}]
-power-options=[(0, false), (1, false), (2, false), (3, false), (4, false), (5, false), (6, false), (7, false)]
-show-activities-button=true

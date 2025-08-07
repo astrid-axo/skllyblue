@@ -1,3 +1,0 @@
-[org.gnome.shell.extensions.tilingshell]
-layouts-json='[{"id":"18256512","tiles":[{"x":0,"y":0,"width":0.4979166666666667,"height":1,"groups":[1]},{"x":0.4979166666666667,"y":0,"width":0.5020833333333347,"height":1,"groups":[1]}]},{"id":"23894225","tiles":[{"x":0,"y":0,"width":1,"height":1,"groups":[]}]},{"id":"40394169","tiles":[{"x":0,"y":0,"width":0.5,"height":0.5004784688995215,"groups":[1,2]},{"x":0.5,"y":0,"width":0.5000000000000013,"height":0.5004784688995215,"groups":[3,1]},{"x":0,"y":0.5004784688995215,"width":0.5,"height":0.4995215311004786,"groups":[2,1]},{"x":0.5,"y":0.5004784688995215,"width":0.5000000000000013,"height":0.4995215311004786,"groups":[3,1]}]}]'
-enable-wraparound-focus=true

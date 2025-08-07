@@ -5,13 +5,13 @@ set -ouex pipefail
 uneeded_apps=("syncthing-start")
 
 rsync -rvK /ctx/system_files/shared/ /
-glib-compile-schemas /usr/share/glib-2.0/schemas
 ln -s /run /var/run
 
 rm /usr/share/pixmaps/fedora-gdm-logo.png
 cp /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gdm-logo.png
 
 python3 /ctx/update_os_release.py
+echo "skllyblue" >> /etc/hostname
 
 for f in "skllyjust"; do
     chmod +x /usr/bin/$f
@@ -45,7 +45,7 @@ xdg-icon-resource install --size 256 /usr/share/icons/skllyblue/update.png sklly
 #     fi
 # done
 
-dconf update
+
 
 cd /tmp
 git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
@@ -59,7 +59,6 @@ cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desk
 cd /tmp
 rm -rf ./steam-using-gamescope-guide
 
-flatpak remote-add flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
@@ -76,8 +75,9 @@ dnf5 install -y @development-tools \
     syncthing \
     just \
     fastfetch \
-    nautilus-python
-
+    vim \
+    nautilus-python 
+    
 for f in $uneeded_apps; do
     rm -f /usr/share/applications/$f.desktop
 done
@@ -95,10 +95,13 @@ dnf5 remove -y firefox \
     gnome-tours-app \
 
 gnome_extensions=$(ls /usr/share/gnome-shell/extensions)
-# python script packed into a line because uhh
-echo -e "[org/gnome/shell]\nenabled-extensions=$(echo "_=\"\"\"$gnome_extensions\"\"\";print('['+', '.join([f\"\"\"'{i}'\"\"\" for i in _.split('\n')])+']')" | python3)" \
-    >> /etc/dconf/db/local.d/00-extensions
 
+# python script packed into a line because uhh
+echo -e "[org.gnome.shell]\nenabled-extensions=$(echo "_=\"\"\"$gnome_extensions\"\"\";print('['+', '.join([f\"\"\"'{i}'\"\"\" for i in _.split('\n')])+']')" | python3)" \
+    >> /usr/share/glib-2.0/schemas/10_skllyblue.gschema.override
+
+glib-compile-schemas /usr/share/glib-2.0/schemas
+dconf update
 
 dnf5 -y copr enable lilay/topgrade
 dnf5 -y install topgrade
