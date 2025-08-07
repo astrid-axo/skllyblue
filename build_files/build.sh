@@ -65,7 +65,8 @@ dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 dnf5 install -y @development-tools \
     qemu \
     libvirt \
-    gtk-murrine-engine \
+    nginx \
+    fzf \
     codium \
     steam \
     godot \
