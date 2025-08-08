@@ -4,6 +4,18 @@ set -ouex pipefail
 
 uneeded_apps=("syncthing-start")
 
+cd /tmp
+git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
+cd steam-using-gamescope-guide/usr
+
+for f in $(ls ./bin); do
+    cp -r ./bin/$f /usr/bin/$f
+done
+
+cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desktop
+cd /tmp
+rm -rf ./steam-using-gamescope-guide
+
 rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
 
@@ -45,19 +57,6 @@ xdg-icon-resource install --size 256 /usr/share/icons/skllyblue/update.png sklly
 #     fi
 # done
 
-
-
-cd /tmp
-git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
-cd steam-using-gamescope-guide/usr
-
-for f in $(ls ./bin); do
-    cp -r ./bin/$f /usr/bin/$f
-done
-
-cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desktop
-cd /tmp
-rm -rf ./steam-using-gamescope-guide
 
 dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
