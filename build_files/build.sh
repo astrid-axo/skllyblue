@@ -92,7 +92,7 @@ dnf5 remove -y firefox \
     gnome-shell-extension-places-menu \
     gnome-extensions-app \
     gnome-help-app \
-    gnome-tours-app \
+    gnome-tour \
 
 gnome_extensions=$(ls /usr/share/gnome-shell/extensions)
 
