@@ -93,6 +93,7 @@ dnf5 remove -y firefox \
     gnome-extensions-app \
     gnome-help-app \
     gnome-tour \
+    gnome-software
 
 gnome_extensions=$(ls /usr/share/gnome-shell/extensions)
 
