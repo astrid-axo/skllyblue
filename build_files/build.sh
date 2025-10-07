@@ -62,6 +62,7 @@ dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 dnf5 install -y @development-tools \
+    @kde-desktop \
     qemu \
     libvirt \
     nginx \
