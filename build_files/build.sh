@@ -20,6 +20,7 @@ rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
 
 rm /usr/share/pixmaps/fedora-gdm-logo.png
+ls /usr/share/pixmaps
 cp /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gdm-logo.png
 
 python3 /ctx/update_os_release.py
@@ -29,8 +30,10 @@ for f in "skllyjust"; do
     chmod +x /usr/bin/$f
 done
 
-xdg-icon-resource install --size 256 /usr/share/icons/skllyblue/update.png skllyblue-update
-
+for f in $(ls /usr/share/icons/skllyblue); do
+    icon=${f%.*}
+    xdg-icon-resource install --size 256 /usr/share/icons/skllyblue/$f skllyblue-$icon
+done
 # shell_ver=$(gnome-shell --version)
 # shell_ver=($shell_ver)
 # shell_ver=${shell_ver[2]}
@@ -62,9 +65,6 @@ dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 dnf5 install -y @development-tools \
-    @kde-desktop \
-    qemu \
-    libvirt \
     nginx \
     fzf \
     codium \
@@ -100,7 +100,7 @@ gnome_extensions=$(ls /usr/share/gnome-shell/extensions)
 
 # python script packed into a line because uhh
 echo -e "[org.gnome.shell]\nenabled-extensions=$(echo "_=\"\"\"$gnome_extensions\"\"\";print('['+', '.join([f\"\"\"'{i}'\"\"\" for i in _.split('\n')])+']')" | python3)" \
-    >> /usr/share/glib-2.0/schemas/10_skllyblue.gschema.override
+    >> /usr/share/glib-2.0/schemas/20_skllyblue.gschema.override
 
 glib-compile-schemas /usr/share/glib-2.0/schemas
 dconf update

@@ -23,7 +23,7 @@ RUN \
   --mount=type=bind,from=ghcr.io/blue-build/modules:latest,src=/modules,dst=/tmp/modules,rw \
   --mount=type=bind,from=ghcr.io/blue-build/cli/build-scripts:latest,src=/scripts/,dst=/tmp/scripts/ \
   /tmp/scripts/run_module.sh 'gnome-extensions' \
-  '{"type":"gnome-extensions","install":["ArcMenu","Just Perfection","Tiling Shell","Panel Workspace Scroll","Tailscale QS","Blur my Shell","Syncthing Indicator","Window title is back","Rounded Window Corners Reborn","Caffeine","Fullscreen Notifications","Hide the dock in overview","!Bangs Search"]}'
+  '{"type":"gnome-extensions","install":["ArcMenu","Just Perfection","Tiling Shell","Panel Workspace Scroll","Tailscale QS","Blur my Shell","Syncthing Indicator","Rounded Window Corners Reborn","Caffeine","Fullscreen Notifications","Hide the dock in overview"]}'
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
