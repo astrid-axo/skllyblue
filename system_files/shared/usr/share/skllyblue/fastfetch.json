@@ -18,9 +18,12 @@
     "colors"
   ],
   "logo": {
-    "source": "fedora-silverblue",
+    "source": "/usr/share/skllyblue/ascii-logo",
     "padding": {
       "left": 2
+    },
+    "color": {
+      "1": "cyan"
     }
   }
 }

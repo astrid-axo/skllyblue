@@ -20,7 +20,6 @@ rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
 
 rm /usr/share/pixmaps/fedora-gdm-logo.png
-ls /usr/share/pixmaps
 cp /usr/share/plymouth/themes/spinner/watermark.png /usr/share/pixmaps/fedora-gdm-logo.png
 
 python3 /ctx/update_os_release.py
@@ -65,7 +64,9 @@ dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 dnf5 install -y @development-tools \
-    nginx \
+    docker \
+    docker-compose \
+    freerdp \
     fzf \
     codium \
     steam \

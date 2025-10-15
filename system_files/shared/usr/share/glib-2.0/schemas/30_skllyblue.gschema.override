@@ -1,6 +1,3 @@
-[org.gnome.shell.extensions.window-title-is-back]
-show-app=false
-
 [gnome.shell.extensions.just-perfection]
 startup-status=1
 top-panel-position=1
