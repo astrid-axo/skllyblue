@@ -59,7 +59,6 @@ done
 #     fi
 # done
 
-
 dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
@@ -123,3 +122,11 @@ dnf5 -y copr disable umutd3401/extension-manager
 systemctl enable podman.socket
 systemctl enable tailscaled
 systemctl enable sshd
+
+# regenerate initramfs - stolen from ublue-os/main
+KERNEL_VERSION="$(rpm -q --queryformat="%{evr}.%{arch}" kernel-core)"
+
+# Ensure Initramfs is generated
+export DRACUT_NO_XATTR=1
+/usr/bin/dracut --no-hostonly --kver "${KERNEL_VERSION}" --reproducible -v --add ostree -f "/lib/modules/${KERNEL_VERSION}/initramfs.img"
+chmod 0600 "/lib/modules/${KERNEL_VERSION}/initramfs.img"
