@@ -25,5 +25,12 @@
     "color": {
       "1": "cyan"
     }
+  },
+  "display": {
+    "color": {
+      "title": "cyan",
+      "keys": "cyan"
+    }
   }
 }
+
