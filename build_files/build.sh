@@ -117,6 +117,10 @@ dnf5 -y copr enable umutd3401/extension-manager
 dnf5 -y install extension-manager
 dnf5 -y copr disable umutd3401/extension-manager 
 
+dnf5 -y copr enable yalter/niri
+dnf5 -y install niri
+dnf5 -y copr disable yalter/niri
+
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
