@@ -10,8 +10,13 @@ clock-menu-position-offset=20
 pattern='hh:mm a | MM/dd/yyyy'
 
 [org.gnome.shell.extensions.arcmenu]
-menu-layout='11'
+menu-layout='Windows'
+menu-button-appearance='Icon'
+custom-menu-button-icon='skllyblue-logo-white'
 insider-layout-extra-shortcuts=[{'id': 'org.gnome.Nautilus.desktop'}, {'id': 'org.gnome.Terminal.desktop'}, {'id': 'org.gnome.Settings.desktop'}]
 power-options=[(0, false), (1, false), (2, false), (3, false), (4, false), (5, false), (6, false), (7, false)]
 show-activities-button=true
 runner-show-frequent-apps=false
+
+[org.gnome.desktop.interface]
+color-scheme='prefer-dark'

@@ -63,9 +63,7 @@ dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 dnf5 install -y @development-tools \
-    docker \
-    docker-compose \
-    freerdp \
+    openssl \
     fzf \
     codium \
     steam \
@@ -92,7 +90,7 @@ dnf5 remove -y firefox \
     gnome-shell-extension-launch-new-instance \
     gnome-shell-extension-places-menu \
     gnome-extensions-app \
-    gnome-help-app \
+    gnome-help \
     gnome-tour \
     gnome-software
 
@@ -100,7 +98,7 @@ gnome_extensions=$(ls /usr/share/gnome-shell/extensions)
 
 # python script packed into a line because uhh
 echo -e "[org.gnome.shell]\nenabled-extensions=$(echo "_=\"\"\"$gnome_extensions\"\"\";print('['+', '.join([f\"\"\"'{i}'\"\"\" for i in _.split('\n')])+']')" | python3)" \
-    >> /usr/share/glib-2.0/schemas/20_skllyblue.gschema.override
+    >> /usr/share/glib-2.0/schemas/40_skllyblue.gschema.override
 
 glib-compile-schemas /usr/share/glib-2.0/schemas
 dconf update
@@ -116,10 +114,6 @@ dnf5 -y copr disable vdanielmo/git-credential-manager
 dnf5 -y copr enable umutd3401/extension-manager
 dnf5 -y install extension-manager
 dnf5 -y copr disable umutd3401/extension-manager 
-
-dnf5 -y copr enable yalter/niri
-dnf5 -y install niri
-dnf5 -y copr disable yalter/niri
 
 dnf5 -y copr enable ublue-os/packages
 dnf5 -y install bazaar
@@ -137,4 +131,4 @@ KERNEL_VERSION="$(rpm -q --queryformat="%{evr}.%{arch}" kernel-core)"
 # Ensure Initramfs is generated
 export DRACUT_NO_XATTR=1
 /usr/bin/dracut --no-hostonly --kver "${KERNEL_VERSION}" --reproducible -v --add ostree -f "/lib/modules/${KERNEL_VERSION}/initramfs.img"
-chmod 0600 "/lib/modules/${KERNEL_VERSION}/initramfs.img"+
+chmod 0600 "/lib/modules/${KERNEL_VERSION}/initramfs.img"

@@ -1,4 +1,4 @@
-
+*-*--
 install-emubox:
     sh -c "$(curl -sSL https://emubox.pupper.space/install)"
 
@@ -19,6 +19,9 @@ _first-boot:
     #!/bin/bash
     if [ ! -f ~/.skllyblue-initialized ]; then
         systemctl --user enable --now syncthing
+        for i in "$(cat /usr/share/skllyblue/sys-flatpaks)"; do
+            flatpak install -y flathub "$i"
+        done
 
         touch ~/.skllyblue-initialized
     fi
@@ -30,3 +33,4 @@ update:
     if [[ $val == "reboot" ]]; then
         systemctl reboot
     fi
+
