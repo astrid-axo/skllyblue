@@ -115,10 +115,6 @@ dnf5 -y copr enable umutd3401/extension-manager
 dnf5 -y install extension-manager
 dnf5 -y copr disable umutd3401/extension-manager 
 
-dnf5 -y copr enable ublue-os/packages
-dnf5 -y install bazaar
-dnf5 -y copr disable ublue-os/packages
-
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket

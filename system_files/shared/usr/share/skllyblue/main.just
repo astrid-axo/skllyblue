@@ -19,6 +19,8 @@ _first-boot:
     #!/bin/bash
     if [ ! -f ~/.skllyblue-initialized ]; then
         systemctl --user enable --now syncthing
+        systemctl --user enable --now bazaar
+        
         for i in "$(cat /usr/share/skllyblue/sys-flatpaks)"; do
             flatpak install -y flathub "$i"
         done
