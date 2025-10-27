@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+cd /tmp
+git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide
+cd steam-using-gamescope-guide/usr
+
+for f in $(ls ./bin); do
+    cp -r ./bin/$f /usr/bin/$f
+done
+
+cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desktop
+
+cd /tmp
+rm -rf ./steam-using-gamescope-guide
+
+git clone https://github.com/vicrodh/steamos-add-to-steam/
+cd /tmp/steamos-add-to-steam
+
+chmod +x ./bin/add-to-steam
+cp bin/add-to-steam /usr/bin/steamos-add-to-steam
+
+cd /tmp
+rm -rf steamos-add-to-steam
+
+git clone https://github.com/skullbite/gnome-add-to-steam
+
+cp /tmp/gnome-add-to-steam/add-to-steam.py /usr/share/nautilus-python/extensions

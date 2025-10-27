@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme
+cd WhiteSur-icon-theme
+chmod +x install.sh
+./install.sh
+
+cd /tmp
+rm -rf ./WhiteSur-icon-theme
+
+git clone --depth=1 https://github.com/elisesouche/gnome-catppuccin
+cd gnome-catppuccin
+git submodule update --init --recursive
+python -m venv ./venv
+./venv/bin/pip3 install libsass diff_match_patch
+./venv/bin/python3 build.py
+
+mv _build/theme /usr/share/themes/Catppuccin
+
+cd /tmp
+rm -rf ./gnome-catppuccin
+
+git clone https://github.com/orangci/walls-catppuccin-mocha
+cd walls-catppuccin-mocha
+
+python3 /ctx/wallpaper_meta_gen.py
+cat /usr/share/gnome-background-properties/extra-backgrounds.xml
+
+cp *.{jpg,jpeg,png} /usr/share/backgrounds
+
+cd /tmp
+
+rm -rf ./walls-catppuccin-mocha
+
+for f in $(ls /usr/share/icons/skllyblue); do
+    icon=${f%.*}
+    xdg-icon-resource install --size 256 /usr/share/icons/skllyblue/$f skllyblue-$icon
+done

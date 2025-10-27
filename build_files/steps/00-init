@@ -1,0 +1,11 @@
+#!/bin/bash
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak override --filesystem=xdg-config/gtk-3.0:rw
+flatpak override --filesystem=xdg-config/gtk-4.0:rw
+
+rsync -rvK /ctx/system_files/shared/ /
+ln -s /run /var/run
+
+python3 /ctx/update_os_release.py
+echo "skllyblue" >> /etc/hostname
