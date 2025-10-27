@@ -16,14 +16,16 @@ add-syncthing-folder name id path:
     
 _first-boot:
     #!/bin/bash
+    set -euxo pipefail
     if [ ! -f ~/.skllyblue-initialized ]; then
-        for i in "$(cat /usr/share/skllyblue/sys-flatpaks)"; do
-            flatpak install -y flathub "$i"
+        flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+        
+        for i in $(cat /usr/share/skllyblue/sys-flatpaks); do
+            flatpak --user install -y flathub "$i"
         done
 
         systemctl --user enable --now syncthing
         systemctl --user enable --now bazaar
-        
 
         touch ~/.skllyblue-initialized
     fi
