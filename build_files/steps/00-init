@@ -9,3 +9,5 @@ ln -s /run /var/run
 
 python3 /ctx/update_os_release.py
 echo "skllyblue" >> /etc/hostname
+
+dconf update

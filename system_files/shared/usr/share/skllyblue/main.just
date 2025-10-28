@@ -25,7 +25,6 @@ _first-boot:
         done
 
         systemctl --user enable --now syncthing
-        systemctl --user enable --now bazaar
 
         touch ~/.skllyblue-initialized
     fi

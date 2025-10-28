@@ -2,6 +2,8 @@
 
 set -euxo pipefail
 
+uneeded_apps=("syncthing-start syncthing-ui yelp")
+
 dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
@@ -42,3 +44,13 @@ dnf5 -y copr enable umutd3401/extension-manager
 dnf5 -y install extension-manager
 dnf5 -y copr disable umutd3401/extension-manager 
 
+for f in $uneeded_apps; do
+    rm -f /usr/share/applications/$f.desktop
+done
+
+dnf5 -y autoremove
+
+systemctl enable podman.socket
+systemctl enable tailscaled
+systemctl enable sshd
+systemctl enable bazaar
