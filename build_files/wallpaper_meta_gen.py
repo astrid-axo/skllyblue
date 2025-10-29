@@ -14,7 +14,7 @@ for i in os.listdir("."):
     xml_lines.append(f'  <wallpaper delete="false">')
     xml_lines.append(f'    <name>{i.split(".")[0]}</name>')
     xml_lines.append(f'    <filename>/usr/share/backgrounds/{i}</filename>')
-    xml_lines.append(f'    <options>scaled</options>')
+    xml_lines.append(f'    <options>zoom</options>')
     xml_lines.append(f'    <shade_type>wallpaper</shade_type>')
     xml_lines.append(f'    <pcolor>#ffffff</pcolor>')
     xml_lines.append(f'    <pcolor>#000000</pcolor>')
