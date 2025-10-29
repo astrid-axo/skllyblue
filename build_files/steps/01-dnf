@@ -23,6 +23,7 @@ dnf5 install -y @development-tools \
     nautilus-python 
 
 dnf5 remove -y firefox \
+    toolbox \
     blender \
     gnome-shell-extension-background-logo \
     gnome-shell-extension-window-list \
