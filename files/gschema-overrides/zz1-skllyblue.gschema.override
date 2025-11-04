@@ -17,11 +17,11 @@ menu-button-icon='Custom_Icon'
 custom-menu-button-icon='skllyblue-logo-white'
 eleven-layout-extra-shortcuts=[{'id': 'org.gnome.Nautilus.desktop'}, {'id': 'org.gnome.Settings.desktop'}, {'id': 'org.gnome.Ptyxis.desktop'}, {'id': 'com.mattjakeman.ExtensionManager.desktop'}]
 power-options=[(0, false), (1, false), (2, false), (3, false), (4, false), (5, false), (6, false), (7, false)]
-show-activities-button=true
+show-activities-button=false
 eleven-disable-frequent-apps=true
 disable-tooltips=true
 apps-show-extra-details=true
-pinned-apps=[{'id': 'org.mozilla.firefox.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.usebottles.bottles.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'update.desktop'}]
+pinned-apps=[{'id': 'org.mozilla.firefox.desktop'}, {'id': 'io.github.kolunmi.Bazaar.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.usebottles.bottles.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'update.desktop'}]
 
 
 [org.gnome.shell.extensions.blur-my-shell.panel]
@@ -35,10 +35,14 @@ layouts-json='[{"id":"18256512","tiles":[{"x":0,"y":0,"width":0.4979166666666667
 
 [org.gnome.shell.extensions.aztaskbar]
 indicator-location='BOTTOM'
+hide-dash=true
 
 [org.gnome.desktop.interface]
 color-scheme='prefer-dark'
 icon-theme='WhiteSur'
+
+[org.gnome.desktop.search-providers]
+enabled=['io.github.kolunmi.Bazaar.desktop']
 
 [org.gnome.shell]
 favorite-apps=['org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'codium.desktop', 'org.gnome.Ptyxis.desktop', 'io.github.kolunmi.Bazaar.desktop', 'steam.desktop', 'org.godotengine.Godot.desktop']

@@ -14,7 +14,3 @@ cp ./share/wayland-sessions/steam.desktop /usr/share/wayland-sessions/steam.desk
 
 cd /tmp
 rm -rf ./steam-using-gamescope-guide
-
-git clone https://github.com/skullbite/gnome-add-to-steam
-
-cp /tmp/gnome-add-to-steam/add-to-steam.py /usr/share/nautilus-python/extensions

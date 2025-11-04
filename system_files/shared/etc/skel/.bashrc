@@ -29,5 +29,5 @@ if [ ! -z "${CONTAINER_ID}" ]; then
     PS1="\[\e[0;36m\][ 📦 ] - \[\e[0m\]${PS1}"
 fi
 
-fastfetch --config /usr/share/skllyblue/fastfetch.json
+[[ $- == *i* ]] && fastfetch --config /usr/share/skllyblue/fastfetch.json
 
