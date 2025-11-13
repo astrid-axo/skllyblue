@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Bazaar-Windowless
+Comment=Runs store for search purposes
+Exec=flatpak run --command=bazaar io.github.kolunmi.Bazaar --no-window
+Icon=org.gnome.Terminal
+Type=Application
+Categories=Utility;System;

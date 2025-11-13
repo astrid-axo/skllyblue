@@ -8,6 +8,7 @@ dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 dnf5 install -y @development-tools \
+    alsa-firmware \
     mutter-devel \
     openssl \
     fzf \
@@ -44,7 +45,11 @@ dnf5 -y copr disable vdanielmo/git-credential-manager
 
 dnf5 -y copr enable umutd3401/extension-manager
 dnf5 -y install extension-manager
-dnf5 -y copr disable umutd3401/extension-manager 
+dnf5 -y copr disable umutd3401/extension-manager
+
+# dnf5 -y copr enable bieszczaders/kernel-cachyos
+# dnf5 -y install kernel-cachyos kernel-cachyos-devel-matched
+# dnf5 -y copr disable bieszczaders/kernel-cachyos
 
 for f in $uneeded_apps; do
     rm -f /usr/share/applications/$f.desktop
@@ -55,4 +60,4 @@ dnf5 -y autoremove
 systemctl enable podman.socket
 systemctl enable tailscaled
 systemctl enable sshd
-systemctl enable bazaar
+# systemctl enable bazaar
