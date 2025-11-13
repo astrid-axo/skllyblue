@@ -1,3 +1,8 @@
+import "just/themes.just"
+
+default:
+    skllyjust --choose
+    
 install-emubox:
     sh -c "$(curl -sSL https://emubox.pupper.space/install)"
 
