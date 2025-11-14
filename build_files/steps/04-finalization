@@ -3,7 +3,7 @@
 set -euxo pipefail
 
 # regenerate initramfs - stolen from ublue-os/main
-KERNEL_VERSION="$(rpm -q --queryformat="%{evr}.%{arch}" kernel-core)"
+KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
 
 # Ensure Initramfs is generated
 export DRACUT_NO_XATTR=1
