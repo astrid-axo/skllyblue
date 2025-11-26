@@ -31,6 +31,7 @@ dnf -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-a
   scx-manager
 
 dnf5 install -y @development-tools \
+    webkit2gtk4.1-devel \
     waydroid \
     alsa-firmware \
     mutter-devel \
