@@ -18,7 +18,6 @@ custom-menu-button-icon='skllyblue-logo-white'
 eleven-layout-extra-shortcuts=[{'id': 'org.gnome.Nautilus.desktop'}, {'id': 'org.gnome.Settings.desktop'}, {'id': 'org.gnome.Ptyxis.desktop'}, {'id': 'com.mattjakeman.ExtensionManager.desktop'}]
 power-options=[(0, false), (1, false), (2, false), (3, false), (4, false), (5, false), (6, false), (7, false)]
 show-activities-button=false
-eleven-disable-frequent-apps=true
 disable-tooltips=true
 apps-show-extra-details=true
 pinned-apps=[{'id': 'org.mozilla.firefox.desktop'}, {'id': 'io.github.kolunmi.Bazaar.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.usebottles.bottles.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'update.desktop'}]
