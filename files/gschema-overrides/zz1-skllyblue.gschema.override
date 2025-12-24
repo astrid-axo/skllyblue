@@ -18,16 +18,13 @@ custom-menu-button-icon='skllyblue-logo-white'
 eleven-layout-extra-shortcuts=[{'id': 'org.gnome.Nautilus.desktop'}, {'id': 'org.gnome.Settings.desktop'}, {'id': 'org.gnome.Ptyxis.desktop'}, {'id': 'com.mattjakeman.ExtensionManager.desktop'}]
 power-options=[(0, false), (1, false), (2, false), (3, false), (4, false), (5, false), (6, false), (7, false)]
 show-activities-button=false
-disable-tooltips=true
+eleven-show-frequent-apps=false
+show-tooltips=false
 apps-show-extra-details=true
 pinned-apps=[{'id': 'org.mozilla.firefox.desktop'}, {'id': 'io.github.kolunmi.Bazaar.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.usebottles.bottles.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'update.desktop'}]
 
-
-[org.gnome.shell.extensions.blur-my-shell.panel]
-override-background=false
-
 [org.gnome.shell.extensions.user-theme]
-name='Catppuccin'
+name='catppuccin-mocha'
 
 [org.gnome.shell.extensions.tilingshell]
 layouts-json='[{"id":"18256512","tiles":[{"x":0,"y":0,"width":0.4979166666666667,"height":1,"groups":[1]},{"x":0.4979166666666667,"y":0,"width":0.5020833333333347,"height":1,"groups":[1]}]},{"id":"23894225","tiles":[{"x":0,"y":0,"width":1,"height":1,"groups":[]}]},{"id":"40394169","tiles":[{"x":0,"y":0,"width":0.5,"height":0.5004784688995215,"groups":[1,2]},{"x":0.5,"y":0,"width":0.5000000000000013,"height":0.5004784688995215,"groups":[3,1]},{"x":0,"y":0.5004784688995215,"width":0.5,"height":0.4995215311004786,"groups":[2,1]},{"x":0.5,"y":0.5004784688995215,"width":0.5000000000000013,"height":0.4995215311004786,"groups":[3,1]}]},{"id":"10688284","tiles":[{"x":0,"y":0,"width":0.5,"height":0.4995215311004785,"groups":[1,2]},{"x":0.5,"y":0,"width":0.49999999999999994,"height":1,"groups":[1]},{"x":0,"y":0.4995215311004785,"width":0.5,"height":0.5004784688995216,"groups":[2,1]}]},{"id":"10743978","tiles":[{"x":0,"y":0,"width":0.5036458333333333,"height":0.5004784688995215,"groups":[2,1]},{"x":0,"y":0.5004784688995215,"width":0.9999999999999996,"height":0.4995215311004785,"groups":[1]},{"x":0.5036458333333333,"y":0,"width":0.4963541666666662,"height":0.5004784688995215,"groups":[1,2]}]},{"id":"5940947","tiles":[{"x":0,"y":0,"width":1,"height":0.5004784688995215,"groups":[1]},{"x":0,"y":0.5004784688995215,"width":1,"height":0.4995215311004786,"groups":[1]}]}]'
@@ -52,4 +49,6 @@ experimental-features=['xwayland-native-scaling', 'scale-monitor-framebuffer', '
 
 [org.gnome.desktop.wm.preferences]
 button-layout=':minimize,close'
+
+
 
