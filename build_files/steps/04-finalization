@@ -2,6 +2,10 @@
 
 set -euxo pipefail
 
+echo "application/x-ms-dos-executable=io.github.Faugus.faugus-launcher.desktop" >> /etc/mimeapps.list
+echo "application/vnd.microsoft.portable-executable=io.github.Faugus.faugus-launcher.desktop" >> /etc/mimeapps.list
+cat /etc/mimeapps.list
+
 # regenerate initramfs - stolen from ublue-os/main
 KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
 

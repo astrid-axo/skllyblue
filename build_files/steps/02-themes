@@ -11,17 +11,17 @@ chmod +x install.sh
 cd /tmp
 rm -rf ./WhiteSur-icon-theme
 
-git clone --depth=1 https://github.com/elisesouche/gnome-catppuccin
-cd gnome-catppuccin
-git submodule update --init --recursive
-python -m venv ./venv
-./venv/bin/pip3 install libsass diff_match_patch
-./venv/bin/python3 build.py
-
-mv _build/theme /usr/share/themes/Catppuccin
-
-cd /tmp
-rm -rf ./gnome-catppuccin
+# git clone --depth=1 https://github.com/elisesouche/gnome-catppuccin
+# cd gnome-catppuccin
+# git submodule update --init --recursive
+# python -m venv ./venv
+# ./venv/bin/pip3 install libsass diff_match_patch
+# ./venv/bin/python3 build.py
+# 
+# mv _build/theme /usr/share/themes/Catppuccin
+# 
+# cd /tmp
+# rm -rf ./gnome-catppuccin
 
 git clone https://github.com/orangci/walls-catppuccin-mocha
 cd walls-catppuccin-mocha

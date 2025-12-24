@@ -47,7 +47,8 @@ dnf5 install -y @development-tools \
     just \
     fastfetch \
     vim \
-    nautilus-python 
+    nautilus-python \
+    clapper 
 
 dnf5 remove -y firefox \
     toolbox \
@@ -57,7 +58,6 @@ dnf5 remove -y firefox \
     gnome-shell-extension-apps-menu \
     gnome-shell-extension-launch-new-instance \
     gnome-shell-extension-places-menu \
-    gnome-tour \
     gnome-software
 
 dnf5 -y copr enable lilay/topgrade
