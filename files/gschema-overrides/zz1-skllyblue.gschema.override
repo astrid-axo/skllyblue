@@ -21,7 +21,7 @@ show-activities-button=false
 eleven-show-frequent-apps=false
 show-tooltips=false
 apps-show-extra-details=true
-pinned-apps=[{'id': 'net.waterfox.waterfox.desktop'}, {'id': 'io.github.kolunmi.Bazaar.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'update.desktop'}]
+pinned-apps=[{'id': 'net.waterfox.waterfox.desktop'}, {'id': 'io.github.kolunmi.Bazaar.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'com.github.marhkb.Pods.desktop'}, {'id': 'io.github.swordpuffin.rewaita.desktop'}, {'id': 'update.desktop'}]
 
 [org.gnome.shell.extensions.user-theme]
 name='catppuccin-mocha'
