@@ -21,12 +21,13 @@ show-activities-button=false
 eleven-show-frequent-apps=false
 show-tooltips=false
 apps-show-extra-details=true
-pinned-apps=[{'id': 'org.mozilla.firefox.desktop'}, {'id': 'io.github.kolunmi.Bazaar.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.usebottles.bottles.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'update.desktop'}]
+pinned-apps=[{'id': 'net.waterfox.waterfox.desktop'}, {'id': 'io.github.kolunmi.Bazaar.desktop'}, {'id': 'steam.desktop'}, {'id': 'codium.desktop'}, {'id': 'com.ranfdev.DistroShelf.desktop'}, {'id': 'update.desktop'}]
 
 [org.gnome.shell.extensions.user-theme]
 name='catppuccin-mocha'
 
 [org.gnome.shell.extensions.tilingshell]
+show-indicator=false
 layouts-json='[{"id":"18256512","tiles":[{"x":0,"y":0,"width":0.4979166666666667,"height":1,"groups":[1]},{"x":0.4979166666666667,"y":0,"width":0.5020833333333347,"height":1,"groups":[1]}]},{"id":"23894225","tiles":[{"x":0,"y":0,"width":1,"height":1,"groups":[]}]},{"id":"40394169","tiles":[{"x":0,"y":0,"width":0.5,"height":0.5004784688995215,"groups":[1,2]},{"x":0.5,"y":0,"width":0.5000000000000013,"height":0.5004784688995215,"groups":[3,1]},{"x":0,"y":0.5004784688995215,"width":0.5,"height":0.4995215311004786,"groups":[2,1]},{"x":0.5,"y":0.5004784688995215,"width":0.5000000000000013,"height":0.4995215311004786,"groups":[3,1]}]},{"id":"10688284","tiles":[{"x":0,"y":0,"width":0.5,"height":0.4995215311004785,"groups":[1,2]},{"x":0.5,"y":0,"width":0.49999999999999994,"height":1,"groups":[1]},{"x":0,"y":0.4995215311004785,"width":0.5,"height":0.5004784688995216,"groups":[2,1]}]},{"id":"10743978","tiles":[{"x":0,"y":0,"width":0.5036458333333333,"height":0.5004784688995215,"groups":[2,1]},{"x":0,"y":0.5004784688995215,"width":0.9999999999999996,"height":0.4995215311004785,"groups":[1]},{"x":0.5036458333333333,"y":0,"width":0.4963541666666662,"height":0.5004784688995215,"groups":[1,2]}]},{"id":"5940947","tiles":[{"x":0,"y":0,"width":1,"height":0.5004784688995215,"groups":[1]},{"x":0,"y":0.5004784688995215,"width":1,"height":0.4995215311004786,"groups":[1]}]}]'
 
 [org.gnome.shell.extensions.aztaskbar]
@@ -41,7 +42,7 @@ icon-theme='WhiteSur'
 enabled=['io.github.kolunmi.Bazaar.desktop']
 
 [org.gnome.shell]
-favorite-apps=['org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'codium.desktop', 'org.gnome.Ptyxis.desktop', 'io.github.kolunmi.Bazaar.desktop', 'steam.desktop', 'org.godotengine.Godot.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'net.waterfox.waterfox.desktop', 'codium.desktop', 'org.gnome.Ptyxis.desktop', 'io.github.kolunmi.Bazaar.desktop', 'steam.desktop', 'org.godotengine.Godot.desktop']
 enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'arcmenu@arcmenu.com', 'aztaskbar@aztaskbar.gitlab.com', 'blur-my-shell@aunetx', 'caffeine@patapon.info', 'clipboard-indicator@tudmotu.com', 'date-menu-formatter@marcinjakubowski.github.com', 'fullscreen-notifications@sorrow.about.alice.pm.me', 'grand-theft-focus@zalckos.github.com', 'gsconnect@andyholmes.github.io', 'hide-dock-in-overview@roslax', 'just-perfection-desktop@just-perfection', 'panel-workspace-scroll@polymeilex.github.io', 'rounded-window-corners@fxgn', 'syncthing@gnome.2nv2u.com', 'tailscale@joaophi.github.com', 'tilingshell@ferrarodomenico.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
 
 [org.gnome.mutter]
