@@ -1,0 +1,3 @@
+[Flatpak Preinstall net.waterfox.waterfox]
+Branch=stable
+IsRuntime=false
