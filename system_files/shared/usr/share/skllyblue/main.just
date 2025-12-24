@@ -1,8 +1,5 @@
 import "just/themes.just"
 
-default:
-    skllyjust --choose
-    
 install-emubox:
     sh -c "$(curl -sSL https://emubox.pupper.space/install)"
 
@@ -23,13 +20,8 @@ _first-boot:
     #!/bin/bash
     set -euxo pipefail
     if [ ! -f ~/.skllyblue-initialized ]; then
-        flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-        
-        for i in $(cat /usr/share/skllyblue/sys-flatpaks); do
-            flatpak --user install -y flathub "$i"
-        done
-
-        systemctl --user enable --now syncthing
+        flatpak preinstall -y
+        systemctl --user enable --now syncthing@$(whoami)
 
         touch ~/.skllyblue-initialized
     fi
