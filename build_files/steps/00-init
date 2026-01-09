@@ -2,6 +2,8 @@
 
 set -euox pipefail
 
+FLATPAKS=("com.ranfdev.DistroShelf io.github.kolunmi.Bazaar com.github.marhkb.Pods io.github.Faugus.faugus-launcher")
+
 
 git clone https://github.com/flatpak/flatpak
 cd flatpak
@@ -23,6 +25,10 @@ flatpak override --filesystem=xdg-config/gtk-4.0:rw
 
 rsync -rvK /ctx/system_files/shared/ /
 ln -s /run /var/run
+mkdir -p /usr/share/flatpak/preinstall.d
+for i in $FLATPAKS; do
+    echo -e "[Flatpak Preinstall $i]\nBranch=stable\nIsRuntime=false" > /usr/share/flatpak/preinstall.d/$i.preinstall
+done
 
 python3 /ctx/update_os_release.py
 echo "skllyblue" >> /etc/hostname
