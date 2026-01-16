@@ -25,6 +25,7 @@ dnf5 install -y @development-tools \
     fastfetch \
     vim \
     nautilus-python \
+    go \
     clapper 
 
 dnf5 remove -y firefox \
